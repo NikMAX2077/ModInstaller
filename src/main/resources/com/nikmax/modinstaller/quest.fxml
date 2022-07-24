@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.geometry.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane style="-fx-background-color: transparent; " stylesheets="@styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.nikmax.modinstaller.HelloController">
+    <children>
+        <Rectangle arcHeight="5.0" arcWidth="5.0" height="61.0" stroke="BLACK" strokeType="INSIDE" width="368.0" StackPane.alignment="BOTTOM_CENTER">
+            <StackPane.margin>
+                <Insets bottom="2.4" />
+            </StackPane.margin>
+        </Rectangle>
+        <ProgressBar prefHeight="55.0" prefWidth="358.0" progress="0.55" StackPane.alignment="BOTTOM_CENTER">
+            <StackPane.margin>
+                <Insets />
+            </StackPane.margin>
+            <padding>
+                <Insets bottom="-1.0" />
+            </padding>
+        </ProgressBar>
+        <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="835.0" prefWidth="907.0" styleClass="rangers-background-image">
+            <children>
+                <Button fx:id="exitBtn" layoutX="626.0" layoutY="10.0" mnemonicParsing="false" onAction="#onExitBtn_Click" prefHeight="70.0" prefWidth="254.0" styleClass="big-button" stylesheets="@styles.css" text="выйти">
+               <font>
+                  <Font size="16.0" />
+               </font></Button>
+                <Button fx:id="applyBtn" layoutX="682.0" layoutY="755.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="83.0" styleClass="apply-button" />
+                <Button fx:id="cancelBtn" layoutX="764.0" layoutY="755.0" mnemonicParsing="false" prefHeight="56.0" prefWidth="84.0" styleClass="cancel-button" />
+                <HBox alignment="CENTER" layoutX="88.0" layoutY="171.0" spacing="1.0">
+                    <children>
+                        <TextField fx:id="pathTfd" prefHeight="30.0" prefWidth="475.0" styleClass="rangers-textField">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </TextField>
+                        <Button fx:id="choiceBtn" alignment="CENTER" mnemonicParsing="false" onAction="#onChoiceBtn_Click" prefHeight="29.0" prefWidth="37.0" styleClass="choice-button" />
+                    </children>
+                </HBox>
+                <VBox layoutX="97.0" layoutY="264.0" prefHeight="452.0" prefWidth="522.0" spacing="10.0" styleClass="rangers-checkbox" AnchorPane.bottomAnchor="119.0" AnchorPane.leftAnchor="97.0" AnchorPane.rightAnchor="288.0" AnchorPane.topAnchor="264.0">
+                    <children>
+                        <CheckBox mnemonicParsing="false" styleClass="rangers-checkbox" text="Universe Original">
+                            <font>
+                                <Font size="15" />
+                            </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" styleClass="rangers-checkbox" text="Архив исправлений для Universe">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" styleClass="rangers-checkbox" text="Reflection">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" styleClass="rangers-checkbox" text="Polaria mods">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </CheckBox>
+                        <CheckBox mnemonicParsing="false" styleClass="rangers-checkbox" text="garpun4">
+                            <font>
+                                <Font size="15.0" />
+                            </font>
+                        </CheckBox>
+                    </children>
+                </VBox>
+                <Label layoutX="164.0" layoutY="736.0" text="25%" textFill="#33e47a" />
+                <Label layoutX="171.0" layoutY="774.0" text="50%" textFill="#33e47a" />
+                <Label layoutX="164.0" layoutY="802.0" text="75%" textFill="#33e47a" />
+                <Label layoutX="82.0" layoutY="765.0" text="OK" textFill="#33e47a" />
+                <Label layoutX="88.0" layoutY="784.0" text="ERROR" textFill="#e33434" />
+                <Label layoutX="93.0" layoutY="152.0" text="Путь к папке с игрой:" textFill="yellow" />
+            <Label layoutX="92.0" layoutY="238.0" text="Список модов к установке:" textFill="yellow" />
+            </children>
+        </AnchorPane>
+        <Label text="Label" textFill="yellow" wrapText="true" StackPane.alignment="BOTTOM_CENTER">
+            <padding>
+                <Insets bottom="15.0" />
+            </padding>
+            <font>
+                <Font name="Hack Bold" size="13.0" />
+            </font>
+        </Label>
+    </children>
+    <opaqueInsets>
+        <Insets />
+    </opaqueInsets>
+</StackPane>
