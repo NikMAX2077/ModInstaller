@@ -11,7 +11,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class ModInstaller {
-
+    //todo добавить поддержку 7z и rar, проверку расширения архива и выбор нужного метода
+    //todo добавить проверку на случай нескольких архивов в одной папке (котянка и котянка+)
     public static String Download_fromYandex(String mod_URL) throws IOException {
 
         //ссылка-запрос на скачивание с Yandex Disk через REST API
@@ -41,26 +42,33 @@ public class ModInstaller {
         URL downloadURL = new URL(content.substring(firstIndex, lastIndex));
 
         //парсим имя файла из прямой ссылки
-        String filename = content.substring(content.indexOf("filename="));
-        filename = filename.substring(0, filename.indexOf("&"));
-        filename = filename.replace("filename=", "");
+        String archiveName = content.substring(content.indexOf("filename="));
+        archiveName = archiveName.substring(0, archiveName.indexOf("&"));
+        archiveName = archiveName.replace("filename=", "");
 
         //скачиваем файл
         connection = (HttpURLConnection) downloadURL.openConnection();
         connection.setRequestMethod("GET");
-        FileUtils.copyURLToFile(downloadURL, new File(System.getProperty("user.dir") + "/ЗАГРУЗКИ/" + filename));
+        FileUtils.copyURLToFile(downloadURL, new File(System.getProperty("user.dir") + "/ЗАГРУЗКИ/" + archiveName));
         connection.disconnect();
 
         //возвращаем название архива для его передачи в метод-установщик
-        return filename;
+        return archiveName;
     }
 
     public static void Install(String archiveName, String gameFolder_Path) throws IOException {
-        ZipFile mod_zip = new ZipFile(System.getProperty("user.dir") + "/ЗАГРУЗКИ/" + archiveName);
-//        mod_zip.extractAll(System.getProperty("user.dir"));
+        //zip
+        if (archiveName.contains(".zip")) {
+            ZipFile mod_zip = new ZipFile(System.getProperty("user.dir") + "/ЗАГРУЗКИ/" + archiveName);
+            mod_zip.extractAll(gameFolder_Path);
+        }
+        //7z
+        if (archiveName.contains(".7z")) {
 
-        mod_zip.extractAll(gameFolder_Path);
+        }
+        //rar
+        if (archiveName.contains(".rar")) {
 
+        }
     }
-
 }
